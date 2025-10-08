@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from fastapi.middleware.cors import CORSMiddleware 
 import os
 
 # --- DB設定 ---
@@ -41,6 +42,17 @@ class LetterCreate(BaseModel):
 
 # --- FastAPI本体 ---
 app = FastAPI()
+origins = [
+    "https://ar-frontend-h1w8.onrender.com", # フロントエンドのURL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins, # 許可するオリジン
+    allow_credentials=True,
+    allow_methods=["*"], # すべてのHTTPメソッドを許可
+    allow_headers=["*"], # すべてのHTTPヘッダーを許可
+)
 
 
 # --- APIルート ---
