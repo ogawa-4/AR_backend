@@ -44,6 +44,7 @@ class LetterCreate(BaseModel):
 app = FastAPI()
 origins = [
     "https://ar-frontend-h1w8.onrender.com", # フロントエンドのURL
+    "https://ar-frontend-h1w8.onrender.com/",
 ]
 
 app.add_middleware(
