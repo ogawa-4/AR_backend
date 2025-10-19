@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 # --- DB設定 ---
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://ogawa_ss:QSocNF3MpMScG1ozSppJHMJw2YAf8RiX@dpg-d3d44vbuibrs738cce1g-a.oregon-postgres.render.com/ar_db_shml")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://ogawa_ss:QSocNF3MpMScG1ozSppJHMJw2YAf8RiX@dpg-d3d44vbuibrs738cce1g-a.oregon-postgres.render.com/ar_db_shml?sslmode=require")
 
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL が設定されていません。Renderの環境変数に追加してください。")
