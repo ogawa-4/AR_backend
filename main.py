@@ -26,7 +26,6 @@ class Letter(Base):
     __tablename__ = "letters"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
     content = Column(String, nullable=False)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
@@ -36,7 +35,6 @@ Base.metadata.create_all(bind=engine)
 
 # --- リクエスト用スキーマ ---
 class LetterCreate(BaseModel):
-    title: str
     content: str
     latitude: float
     longitude: float
