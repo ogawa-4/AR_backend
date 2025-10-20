@@ -20,8 +20,6 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-Base.metadata.create_all(bind=engine)
-
 
 # --- モデル定義 ---
 class Letter(Base):
@@ -32,6 +30,8 @@ class Letter(Base):
     content = Column(String, nullable=False)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
+
+Base.metadata.create_all(bind=engine)
 
 
 # --- リクエスト用スキーマ ---
