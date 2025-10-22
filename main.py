@@ -69,7 +69,6 @@ def get_letters():
 def create_letter(letter: LetterCreate):
     db = SessionLocal()
     new_letter = Letter(
-        title=letter.title,
         content=letter.content,
         latitude=letter.latitude,
         longitude=letter.longitude
